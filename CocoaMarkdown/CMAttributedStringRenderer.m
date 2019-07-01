@@ -343,7 +343,13 @@
 
 - (void)appendString:(NSString *)string
 {
+    if (!string) {
+        return;
+    }
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:string attributes:_attributeStack.cascadedAttributes];
+    if (!attrString) {
+        return;
+    }
     [_buffer appendAttributedString:attrString];
 }
 
